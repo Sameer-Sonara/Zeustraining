@@ -8,11 +8,11 @@ It uses tags to define elements such as headings, paragraphs, images, links, tab
 Inline vs Block Elements
 Inline Elements:
 Take only as much width as needed.
-Examples: <b> for bold, <i> for italic, <span>, <a>.
+Examples:  bold, italic
 
 Block Elements:
 Take the full available width.
-Examples: <div>, <h1>, <p>.
+Examples: headings, paragraphs
 
 Ways to Implement CSS
 
