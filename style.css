@@ -1,0 +1,53 @@
+
+body {
+    background-color: #ffffcc;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    background-color: darkred;
+    color: #ffffcc;
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.bottom
+{
+    background-color: red;
+    padding-bottom: 10px;
+}
+table {
+                width: 20%;
+                background-color: #cccccc;
+            }
+            th, td {
+                border: 1px solid #000000;
+            }
+            
+img
+{
+    border: dashed black;
+}
+ul
+{
+    color: red;
+}
+h2 {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+
+b {
+    font-weight: bold;
+}
+
+
+

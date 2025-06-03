@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <title>First_page</title>
+</head>
+<body>
+    <div class="bottom">
+        <h1>My First Web Page</h1>    
+    </div>
+    <h2>What is this ?</h2>
+    <p>
+        Welcome to my <i>first webpage .</i> I created this webpage without any assistance of a webpage editor. Just my little text editor and keen <b>understanding of HTML</b>
+    </p>
+
+    <h2>Why is this? </h2>
+    <ul>
+        <li>To learn HTML</li>
+        <li>List Elements
+            <ol>
+                <li> Home </li>
+                <li> FAQ </li>
+                <li> Contact </li>
+                <li> About </li>
+            </ol>
+        </li>
+        <li>
+            Here i created unordered and ordered lists
+        </li>
+    </ul>
+
+    <h2>ZeusLearining.com</h2>  
+    <a href="https://www.zeuslearning.com/">This will lead to zeuslearning website on same tab</a>
+    <br>
+    <br>
+    
+    <a href="https://www.zeuslearning.com/" target="_blank">This will lead to zeuslearning website on new tab</a>
+    <br>
+    <h2><b>By clicking on the following image it will navigate you to google.com</b></h2>
+    <a href="https://www.google.com" target="_blank"><img src="google.jfif" alt="Google" width="250"></a>
+    <br>
+
+    <h3>
+        <b> some random table</b>
+    </h3>
+        <table>
+            <thead>
+                <tr>
+                    <th> #</th>
+                    <th> Name</th>
+                    <th> Age </th>
+                    <th> City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>1</td>
+                <td> Sameer </td>
+                <td> 21</td>
+                <td> Ahmedabad</td>
+                </tr>
+
+                <tr>
+                <td>2</td>
+                <td> Dhruvin </td>
+                <td> 22</td>
+                <td> Surat</td>
+                </tr>
+
+                <tr>
+                <td>3</td>
+                <td> Smit </td>
+                <td> 24</td>
+                <td> Junaghadh</td>
+                </tr>
+            </tbody>
+            
+        </table>
+    
+        <h3><b>Some random Form</b></h3>  
+        <form onsubmit="return validateForm()">
+        <p><b>Note :</b> It looks like the part, but won't do anything</p>
+        <p>Name:</p>
+        <input id="name" type="text" placeholder="Type your name " name="Name">
+        <br>
+        <p>Comments:</p>
+        <textarea id="comments" rows="10" cols="30" placeholder=" some comment about you" name = Comment></textarea>
+        <br>
+
+        <h3>Are you:</h3>
+        <input  type="radio" id="male" name="gender" value="male"> 
+        <label for="male">male</label>
+        <br>
+        <input type="radio" id="female" name="gender" value="female"> 
+        <label for="female">female</label>
+        <br>
+        <br>
+        <button type="submit">Submit Query</button>
+    </form>
+
+</body>
+</html>
