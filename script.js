@@ -1,4 +1,5 @@
-function validateForm() {
+function validateForm(event) {
+    event.preventDefault();
     const name = document.getElementById("name").value.trim();
     const comments = document.getElementById("comments").value.trim();
     const male = document.getElementById("male").checked;
