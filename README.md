@@ -40,3 +40,22 @@ Internal – JS code is written inside <script> tags in the HTML file.
 External – JS code is written in a separate .js file and linked using <script src="script.js"></script>.
 
 Preferred method: External JS – It keeps code modular, reusable, cleaner, and more readable.
+
+
+Day 2:
+
+Tips for keep CSS organized
+- always use SASS
+- write your HTML before CSS
+- organize your component using BEM
+- Don't reference IDs in CSS
+- use GitHub CS guidelines
+- avoid using <i>!important</i>
+- use bootstrap only when needed
+- keep HTML simple and readable
+
+
+Tips for web fonts
+- always use veriable fonts
+- preload your fonts for speed 
+- self host fonts for fast , privacy and control
