@@ -1,0 +1,62 @@
+@font-face 
+{
+  font-family: 'Roboto';
+  src: url('fonts/roboto.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body
+{
+    font-family:'Roboto' , sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f44f4f;
+}
+
+.card
+{
+    display: flex;
+    gap: 15px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
+    width: 400px;
+}
+.profile
+{
+    width: 100px;
+    height: 100px;
+    /* border-radius: 50%; */
+}
+
+.content
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.username
+{
+    font-weight: bold;
+}
+.message
+{
+    margin: 15px 0px;
+}
+.icons
+{
+    color: gray;
+    display: flex;
+    gap:20px;
+    font-size: 18px;
+}
+.icons i
+{
+    margin-right: 5px;
+}
