@@ -2,26 +2,27 @@
 body {
     background-color: #ffffcc;
     font-family: Arial, sans-serif;
+    padding: 10px;
 }
 p
 {
-    font-size: small;
+    font-size: normal;
 }
 h1 {
     background-color: darkred;
     color: #ffffcc;
     text-align: center;
     padding: 10px;
-    font-size: 25px;
+    font-size: 28px;
     font-style: italic;
-    letter-spacing: 10px;
+    letter-spacing: 15px;
     margin: 0;
 }
 
 .bottom
 {
     background-color: #cc0000;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 table
@@ -33,11 +34,14 @@ table
 }
 img
 {
-    border: dashed lightgray;
+    padding :20px;
+    padding-right: 60px;
+    background-color: white;
+    border: 2.5px dashed lightgray;
 }
 ul
 {
-    color: #cc0000;
+    color: #980404;
     font-style: italic;
 }
 h2 {
@@ -52,12 +56,24 @@ h2 {
 a 
 {
     text-decoration: none; 
+    color: purple;
 }
-#form
+.form
 {
+    font-weight: 500;
     color: #a0a09d;
 }
-#comments
+.comments
 {
+    font-family: 'Courier New', Courier, monospace;
     overflow-y: scroll;
+    resize: none;
+}
+.error
+{
+    color: red;
+}
+::placeholder
+{
+    color: black;
 }
