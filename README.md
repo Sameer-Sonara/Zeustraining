@@ -59,3 +59,39 @@ Tips for web fonts
 - always use veriable fonts
 - preload your fonts for speed 
 - self host fonts for fast , privacy and control
+
+Day 3:
+Frontend: Polishing UI Components
+ 
+Focused on replicating every small detail of the given design template.
+Paid close attention to:
+Padding, spacing, and alignment
+Font sizing and weight
+Rounded corners and shadows
+Used proper <div> containers to structure the layout logically and ensure responsiveness.
+
+Goal: Make the component look and feel identical to the original, pixel by pixel.
+
+
+Main Task:Calculating Large Factorials (like 1000!)
+Problem:
+JavaScript cannot handle extremely large numbers like 1000! using standard Number or BigInt alone for educational simulations.
+
+Solution: Use an Array to Store Each Digit
+To compute large factorials:
+We store the number as an array of digits in reverse order.
+Example: 1234 is stored as [1,2,3,4].
+
+This allows:
+Digit-by-digit multiplication
+Manual carry-over (like doing multiplication on paper)
+
+Optimization: Store More Than One Digit Per Array Element
+Instead of one digit per slot, store blocks of digits
+Example:
+12345678 is  stored as [12,34,56,78].
+Use base 10^9 (i.e., 1 billion) for each array element.
+
+Benefits:
+Reduces array size
+Speeds up multiplication
