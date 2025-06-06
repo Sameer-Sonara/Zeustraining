@@ -96,3 +96,8 @@ Benefits:
 Reduces array size
 Speeds up multiplication
 
+Day 4:
+
+Learned about CSS Grid and Flexbox, and how they work.
+Used this knowledge to create a basic grid container with various styled boxes.
+Also learned about Bootstrap – an open-source CSS framework that provides pre-made components for building responsive and modern web interfaces easily.
