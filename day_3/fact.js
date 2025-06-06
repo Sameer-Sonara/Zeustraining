@@ -47,7 +47,7 @@ function fact(x)
 
 
 console.time("Time: ");
-var factorial = fact(10e10);
+var factorial = fact(100000);
 
 var str = factorial[factorial.length - 1].toString();
 for(let i = factorial.length-2 ; i>=0 ; i--)

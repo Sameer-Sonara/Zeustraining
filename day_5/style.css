@@ -1,0 +1,18 @@
+body
+{
+    display: flex;
+    background-color: lightgray;
+}
+.Container
+{
+    background-color: aqua;
+}
+.Header
+{
+    background-color: black;
+    background-image: url(assets/header\ pattern\ svg.svg);
+}
+.Footer
+{ 
+    background-color: rgb(182, 181, 181);
+}
