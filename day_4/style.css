@@ -1,189 +1,112 @@
-body
-{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    
-   
-}
 .Container
 {
-    justify-content: stretch;
-    align-items: stretch; 
-    padding: 10px;
-    width: 100%;
-    height: 100vh;
+    height :100vh;
+    width : 100%;
     display: grid;
-    grid-template-columns:4fr 5fr 5fr ;
-    grid-template-rows: 2fr 5fr 5fr 2.5fr;
-    gap : 2px;
+    grid-template-areas: 
+    "H H H"
+    "S C1 C1"
+    "S C2 C3"
+    "F F F";
+    grid-template-columns: 2.15fr 3fr 3fr;
+    grid-template-rows:1fr 2.5fr 2.5fr 1.25fr;
+    gap:2px;
+    height: 100vh;
 }
 .Header
 {
     border: 1px solid black;
-    color: white;
+    grid-area: H;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-column: span 3;
-    background-image: linear-gradient(-45deg ,#8F7BE3, #7C66DD, #6E54D9);
 }
 .Side-bar
 {
     border: 1px solid black;
-    color: white;
+    grid-area: S;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-row: span 2;
-    grid-column: span 1;
-    background :linear-gradient(
-        to bottom,
-        #3cdbd3 0%,
-        #36c9c1 20%,
-        #2eb2ab 80%,
-        #29a49d 100%
-    );
-    
 }
 .Content-1
 {
     border: 1px solid black;
-    color: white;
+    grid-area: C1;
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-column: span 2;
-    /* grid-row: 2/3; */
-    background: linear-gradient(
-        135deg,
-        #6e4ef0  0%,
-        #5968e2  20%,
-        #3194f3 85%,
-        #3ad8dc 100%
 
-    );
-    
 }
 .Content-2
 {
     border: 1px solid black;
-    color: white;
+    grid-area: C2;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
-    background: linear-gradient(
-        135deg,
-        #6e4ef0  0%,
-        #5968e2  20%,
-        #3194f3 85%,
-        #3ad8dc 100%
 
-    );}
+}
 .Content-3
 {
     border: 1px solid black;
-    color: white;
+    grid-area: C3;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-        135deg,
-        #6e4ef0  0%,
-        #5968e2  20%,
-        #3194f3 85%,
-        #3ad8dc 100%
 
-    );}
+}
 .Footer
 {
     border: 1px solid black;
-    color: white;
-    grid-column: span 3;
+    grid-area: F;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(-45deg ,#8F7BE3, #7C66DD, #6E54D9);
 }
+
 
 @media screen and (max-width : 768px)
 {
     .Container
     {
-        
-        justify-content: stretch;
-        align-items: stretch; 
-        padding: 10px;
-        width: 100%;
-        height: 100vh;
+        height :100vh;
+        width : 100%;
         display: grid;
-        grid-template-columns:2fr 4fr 4fr ;
-        grid-template-rows: 1fr 3fr 2fr 1fr;
-        gap : 2px;
+        grid-template-areas: 
+        "S H H"
+        "S C1 C1"
+        "S C2 C3"
+        "S F F";
+        grid-template-columns: 2.15fr 3fr 3fr;
+        grid-template-rows:1fr 2.5fr 2.5fr 1.25fr;
+        gap:2px;
+        height: 100vh;
     }
     
-    .Header
+}
+/* @media screen and (max-width : 768px) */
+@media screen and (max-width : 425px)
+ {
+    .Container
     {
-        font-size: 25px;
-        display: flex;
-        grid-row: 1/2;
-        background :linear-gradient(
-        to bottom,
-        #3cdbd3 0%,
-        #36c9c1 20%,
-        #2eb2ab 80%,
-        #29a49d 100%
-    );
+        justify-content: center;
+        height :100vh;
+        width : 100%;
+        display: grid;
+        grid-template-areas: 
+        "H H H H"
+        "C1 C1 C1 C1"
+        "C2 C2 C3 C3"
+        "F F F F";
+        grid-template-columns: 2.15fr 3fr 3fr 2.5fr;
+        grid-template-rows:0.5fr 1.5fr 1.5fr 0.75fr;
+        gap:2px;
+        /* height: 100vh; */
     }
     .Side-bar
     {
-        font-size: 25px;
-        display: flex;
-        grid-column: 1/2;
-        grid-row: 1/5;
-        background-image: linear-gradient(-45deg ,#8F7BE3, #7C66DD, #6E54D9);
-
+        display: none;
     }
-    .Content-1
-    {
-    font-size: 25px;
-
-        display: flex;
-        grid-column: 2/4;
-    }
-    .Content-2
-    {
-        font-size: 25px;
-
-        display: flex;
-        grid-column: 2/3;
-        grid-row: 3/4;
-    }
-    .Content-3
-    {
-        font-size: 25px;
-        display: flex;
-        grid-column: 3/4;
-        grid-row: 3/4;
-    }
-    .Footer
-    {
-        font-size: 25px;
-        display: flex;
-        grid-row: 4/5;
-        background :linear-gradient(
-        to bottom,
-        #3cdbd3 0%,
-        #36c9c1 20%,
-        #2eb2ab 80%,
-        #29a49d 100%
-    );
-    }
-   
-}
+ }
 
