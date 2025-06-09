@@ -13,6 +13,7 @@ body {
 }
 .Container
 {
+    width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -58,7 +59,7 @@ body {
     width: 50%;
     align-items: center;
     overflow: hidden;
-    color: green;
+    color: #3FD28B;
 }
 
 .Nav-bar a
@@ -95,10 +96,10 @@ body {
 .Main-Content
 {
     width: 95%;
-    background-color: gray;
+    background-color: #EEEEEE;
     display: flex;
     flex-direction: column;
-    /* gap: 20px; */
+    gap: 10px;
     padding: 20px;
     justify-content: center;
     align-items: center;
@@ -107,48 +108,129 @@ body {
 .Course-class
 {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     width: 100%;
-    background-color: #8DDC97
+    background-color: #8DDC97;
+    /* padding: 10px; */
+    min-height: 50px;
 }
-
 .option
 {
-    background-color: #8DDC97;
-    display:flex;
+    /* background-color: #E0E1E1; */
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
-a
+.option a
 {
+    width: 100%;
+    gap: 10px;
+    min-height: 50px;
     text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items : center;
 }
+.option a.active
+{
+    border-bottom: 3px solid black;
+}
+.option name 
+{
+    font-size: 20px;
+}
+
+.Showing
+{
+    display: flex;
+    min-height: 50px;
+    /* background-color: gray; */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.Showing .shown-cources 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sort
+{
+    /* background-color: #000000; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    /* position: relative; */
+}
+.sort .Sort-by
+{
+    min-width: 200px;
+}
+
 .Grid
 {
+    width:100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill,  476px);
     grid-template-rows: repeat(auto-fit , minmax(200px , 1fr));
-    gap: 20px;
-    padding: 20px;
+    gap: 15px;
+    /* padding: 20px; */
 }
 .Card
 {
-   background-color: #f0f0f0;
+    display: flex ;
+    justify-content: center;
+    flex-direction: column;
+    
+    min-height: 226px;
+    background-color: #f0f0f0;
     padding: 20px;
-    text-align: center;
-    border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
 }
-
-.Info
+.Card-content
 {
+    display: flex;
+    /* background-color: #000000; */
+}
+.classs
+{
+    width: 100%;
+}
+.content
+{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.Image
+{
+    /* min-width: 500px; */
+    width: 132px;
+}
+.Info-Icons
+{
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.Info a
+{
+    color: #1F7A54;
   text-align: center;
   margin-top: 20px;
   font-size: 18px;
   font-weight: 500;
+  text-decoration: none;
 }
 .Footer
 {
@@ -180,4 +262,15 @@ a
   line-height: 2;
   color: #616161;
   font-weight: medium;
+}
+select
+{
+  font-family: 'Quicksand';
+  border: none;
+  font-size : 16px;
+  color: black ;
+
+  border-bottom: 1px solid #000000;
+  outline: none;
+  background-color: transparent;
 }
