@@ -1,7 +1,7 @@
 let ans = [1]; 
 // console.log("hello");
 
-const N = 100000000;
+const N = 1000000000;
 function multi(a, b) 
 {
     let res = Array(a.length + b.length).fill(0);
@@ -47,12 +47,12 @@ function fact(x)
 
 
 console.time("Time: ");
-var factorial = fact(100000);
+var factorial = fact(1000000);
 
 var str = factorial[factorial.length - 1].toString();
 for(let i = factorial.length-2 ; i>=0 ; i--)
 {
-    str += factorial[i].toString().padStart(8,"0");   
+    str += factorial[i].toString().padStart(9,"0");   
 }
 console.timeEnd("Time: ");
 
