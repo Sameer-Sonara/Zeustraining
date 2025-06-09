@@ -3,30 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quntum - Log-in</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <div class="Container">
         <div class="Header">
-            H
+            <img src="assets/Icons/logo used in header.svg" alt="Quntum Logo" class="Logo">
         </div>
+
         <div class="Main-Content">
-            <div clsss="Log-in-page">
-                login
-            </div>
+            <div class="Log-in-box">
+                <div class="Log-in-Header">
+                    <img src="assets/Icons/back.svg" alt="Back Button" class="Back-Button">
+                    <div class="Log-in-Text" >
+                        Log in With Quntum
+                    </div>
+                </div>
+                </div>
+                <form>
+                    <div class="Radio-group">
+                        <label><input type="radio" name="Usertype" >District</label>
+                        <label><input type="radio" name="Usertype">Independent School</label>
+                    </div>
+                    <div class="Form-Input">
+                        <label for="state">State*</label>
+                        <select id="state">
+                            <option>Select</option>
+                            <option>Maharastra</option>
+                            <option>Gujrat</option>
+                        </select>
+                    </div>
+                    <div class="Form-Input">
+                    <label for="state">District*</label>
+                    <select id="district">
+                        <option>Select</option>                        
+                        <option>Mumbai</option>
+                        <option>Ahmedabad</option>
+                    </select>
+                    </div>
+                    
+                    <div class="Form-Input">
+                        <input type="text" placeholder="Username/Email ID*" id="Username">
+                        <div class="Action-link">
+                            <a href="#">FORGOT USERNAME</a>
+                        </div>
+                    </div>
+                    <div class="Form-Input">
+                        <input type="password" placeholder="Password*" id="Password">
+                        <span class="Eye-Icon" onclick="togglePassword()"><img src="assets/Icons/preview.svg" alt="Toggle Password"></span>
+                    </div>
+                    <div class="Action-link">
+                            <a href="#">FORGOT PASSWORD</a>
+                        </div>
+                    <div class="Remember-Me">
+                        <input type="Checkbox" id="remember">
+                        <label for="remember"> Remember Me</label>
+                    </div>
+                    <button class="Log-in-Button" type="submit">LOG IN</button>
+                </div>
+            </form>
             <div class="Info">
-                <div class="About">
-                    about
-                </div>
-                <div class="Contact">
-                    contect
-                </div>
+                <a href="#">About</a> | <a href="#">Contact Us</a>
             </div>
         </div>
         <div class="Footer">
-            footer
+            <img src="assets/Icons/logo used in footer.svg">
+            <span>Copyright 2020-2021 <b>Zeus System Pvt.Ltd.</b> All rights resereved</span>
         </div>
     </div>
 </body>
 </html>
+<script>
+    function  togglePassword()
+    {
+        const pw = document.getElementById("Password");
+        pw.type = pw.type ===  "password" ? "text" : "password";
+    }
+</script>

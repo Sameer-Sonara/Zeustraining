@@ -1,0 +1,72 @@
+body
+{
+    padding: 10px;
+    margin : 0 ;
+    background-color: lightpink;
+    
+}
+.Container
+{
+    color: white;
+    background-color: aliceblue;
+}
+.Side-bar
+{
+    background: linear-gradient(
+        to bottom,
+        #3CE0D7 0%,
+        #3ACDC7 20% , 
+        #33BAB3 70%,
+        #28A3A0 100%
+
+    );
+}
+.Header , .Footer
+{
+    
+    background: linear-gradient(
+        to right,
+        #7257DA 0%,
+        #775EDD 20% , 
+        #866EE0 70%,
+        #8E78E7 100%
+
+    );
+}
+.Content-1, .Content-2 , .Content-3
+{
+    background: linear-gradient(
+        to bottom right,
+         #7257DA 0%,
+         #576BE4 20% , 
+         #398DF0 80%,
+         #3CD9E2 100%
+
+    );
+}
+@media screen and (max-width : 768px)
+{
+    .Header,.Footer
+    {
+        background: linear-gradient(
+        to top left,
+        #52ebe4 0%,
+        #3ACDC7 30% , 
+        #33BAB3 70%,
+        #28A3A0 100%
+
+    );
+    }
+    .Side-bar
+    {
+        background: linear-gradient(
+        to bottom,
+        #7257DA 0%,
+        #775EDD 20% , 
+        #866EE0 70%,
+        #8E78E7 100%
+
+    );
+    }
+    
+}
