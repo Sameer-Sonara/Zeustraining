@@ -10,17 +10,23 @@ menuwrapper.addEventListener('mouseenter' , () =>{
     clearTimeout(timeout);
     dropdown.style.display = 'flex';
 });
+let x = 0;
 menuwrapper.addEventListener('mouseleave' , () => {
-    timeout = setTimeout(() => {
-        dropdown.style.display = 'none';
-    }, 500);
+    if(!x)
+    {
+        timeout = setTimeout(() => {
+            dropdown.style.display = 'none';
+        }, 500);
+    }
 });
 menutoggle.addEventListener('click', (e)=> {
     e.stopPropagation();
     dropdown.style.display = 'flex';
+    x = 1;
 });
 
 document.addEventListener('click', (e)=> {
     if(!dropdown.contains(e.target))
-    dropdown.style.display = 'none';
+    dropdown.style.display = 'none' , x=0;;
 });
+
