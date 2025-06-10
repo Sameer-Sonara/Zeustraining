@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="Dashboard.css">
-    <script>
-        function toggleMenu() 
-        {
-           const nav = document.getElementById('NavMenu');
-           nav.classList.toggle('show');
-        }
-    </script>
+    <script defer src="Dashbosard.js"></script>
 </head>
 <body>
     
@@ -37,11 +31,19 @@
                             <img height="30px" width="32px" src="assets/Icons/account_circle.svg">
                             <span class="badge">T</span>
                     </div>
-                <button class="menu-toggle" onclick="toggleMenu()">
-                <img src="assets/Icons/hamburger-menu.svg" alt="Menu Icon" />
-            </button>
+                    <div class="Menu-Wrapper">
+                        <div class="Menu-toggle" >
+                        <img src="assets/Icons/hamburger-menu.svg" alt="Menu Icon" />
+                        </div>
+                            <div class="Drop-Down">
+                            <a href="Dashboard.HTML">DASHBOARD</a>
+                            <a href="#Content">CONTENT</a>
+                            <a href="#Useres">USERES</a>
+                            <a href="#Reports">REPORTS</a>
+                            <a href="#Admin">ADMIN</a>
+                        </div>
+                    </div>
             </div>
-            
         </div>
         <div class="Main-Content">
             <div class="Course-class">
