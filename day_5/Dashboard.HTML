@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="Dashboard.css">
+    <script>
+        function toggleMenu() 
+        {
+           const nav = document.getElementById('NavMenu');
+           nav.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     
@@ -13,16 +20,28 @@
             <div class="Logo">
             <img src="assets/Icons/logo used in header.svg" alt="Quntum Logo" class="Logo">
             </div>
-            <div class="Nav-bar">
-                <a href="Dashboard.HTML" class="active">DASHBOARD</a>
-                <a href="#Content">CONTENT</a>
-                <a href="#Useres">USERES</a>
-                <a href="#Reports">REPORTS</a>
-                <a href="#Admin">ADMIN</a>
-                <a href="Alerts"><img src="assets/Icons/alerts.svg"></a>
-                <a href="Announcements"><img src="assets/Icons/announcements.svg"></a>
-                <a href="Profile"><img src="assets/Icons/account_circle.svg"></a>                
+            
+                <div class="Navbar-Icons">
+                    <nav class="Nav-bar" id="NavMenu">
+                            <a href="Dashboard.HTML" class="active">DASHBOARD</a>
+                            <a href="#Content">CONTENT</a>
+                            <a href="#Useres">USERES</a>
+                            <a href="#Reports">REPORTS</a>
+                            <a href="#Admin" >ADMIN</a>
+                    </nav>
+                    <div class="Main-Icons" >
+                            <img height="20px" width="20px" src="assets/Icons/alerts.svg" >
+                            <span class="badge_1">2</span>
+                            <img height="20px" width="20px" src="assets/Icons/announcements.svg">
+                            <span class="badge_2">1</span>
+                            <img height="30px" width="32px" src="assets/Icons/account_circle.svg">
+                            <span class="badge">T</span>
+                    </div>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                <img src="assets/Icons/hamburger-menu.svg" alt="Menu Icon" />
+            </button>
             </div>
+            
         </div>
         <div class="Main-Content">
             <div class="Course-class">
@@ -56,42 +75,13 @@
             <div class="Grid">
                 <div class="Card">
                     <div class="Card-content">
-                        <img src="assets/Images/imageMask.svg" class="Image">
-                        <div class="content">
-                            <div class="content-Title">
-                                <b>Acceleration</b>
-                            </div>
-                            <div class="Information-about-course">
-                                Physics | Grade 7 <span class="Add">+2</span>
-                            </div>
-                            <span class="Units">
-                                <b>4</b> units <b>18</b> lessions <b>24</b> Topics
-                            </span>
-                            <div class="Card-input">
-                                <label></label>
-                                <select id="classs" class="classs">
-                                    <option><b>Mr. Frank's Class B</b></option>
-                                    <option><b>All Classes</b></option>
-                                </select>
-                            </div>
-                            <span class="Information-about-class">
-                                50 Students | 21-Jan-2020 - 21-Aug-2020
-                            </span>
-                        </div>
-                    </div>
-                    <div class="Info-Icons">
-                        <a href="#watch"><img width="22px" height="24px" src="assets/Icons/preview.svg"></a>
-                        <a href="#manage-courses"><img width="18px" height="20px" src="assets/Icons/manage course.svg" ></a>
-                        <a href="#grade-submission"><img width="18px" height="20px" src="assets/Icons/grade submissions.svg"></a>
-                        <a href="#reports"><img width="25px" height="25px" src="assets/Icons/reports.svg"></a>
-                    </div>
-                </div>
-                <div class="Card">
-                    <div class="Card-content">
                         <img src="assets/Images/imageMask-1.svg" class="Image">
                         <div class="content">
-                            <div class="content-Title">
-                                Acceleration
+                            <div class="Content-Title">
+                                <div class="Title">Acceleration</div>
+                                <div class="Star">
+                                    <img width="20px" height="24px" src="assets/Icons/favourite.svg">
+                                </div>
                             </div>
                             <div class="Information-about-course">
                                 Physics | Grade 7 <span class="Add">+2</span>
@@ -122,56 +112,98 @@
                     <div class="Card-content">
                         <img src="assets/Images/imageMask-2.svg" class="Image">
                         <div class="content">
-                            <div class="content-Title">
-                                Acceleration
+                            <div class="Content-Title">
+                                <div class="Title">Displacement, Velocity and Speed</div>
+                                <div class="Star">
+                                    <img width="20px" height="24px" src="assets/Icons/favourite.svg">
+                                </div>
                             </div>
                             <div class="Information-about-course">
-                                Physics | Grade 7 <span class="Add">+2</span>
+                                Physics | Grade 6 <span class="Add">+3</span>
                             </div>
                             <span class="Units">
-                                <b>4</b> units <b>18</b> lessions <b>24</b> Topics
+                                <b>2</b> units <b>15</b> lessions <b>20</b> Topics
                             </span>
                             <div class="Card-input">
                                 <label></label>
                                 <select id="classs" class="classs">
-                                    <option><b>Mr. Frank's Class B</b></option>
+                                    <option><b>No Classes</b></option>
                                     <option><b>All Classes</b></option>
                                 </select>
                             </div>
-                            <span class="Information-about-class">
+                            <!-- <span class="Information-about-class">
                                 50 Students | 21-Jan-2020 - 21-Aug-2020
-                            </span>
+                            </span> -->
                         </div>
                     </div>
                     <div class="Info-Icons">
                         <a href="#watch"><img width="22px" height="24px" src="assets/Icons/preview.svg"></a>
-                        <a href="#manage-courses"><img width="18px" height="20px" src="assets/Icons/manage course.svg" ></a>
-                        <a href="#grade-submission"><img width="18px" height="20px" src="assets/Icons/grade submissions.svg"></a>
+                        <a href="#manage-courses"><img width="18px" height="20px" src="assets/Icons/manage course.svg" class="Disabled" ></a>
+                        <a href="#grade-submission"><img width="18px" height="20px" src="assets/Icons/grade submissions.svg" class="Disabled"></a>
                         <a href="#reports"><img width="25px" height="25px" src="assets/Icons/reports.svg"></a>
                     </div>
                 </div>
                 <div class="Card">
                     <div class="Card-content">
-                        <img src="assets/Images/imageMask-3.svg" class="Image">
+                        <img src="assets/Images/imageMask.svg" class="Image">
                         <div class="content">
-                            <div class="content-Title">
-                                Acceleration
+                            <div class="Content-Title">
+                                <div class="Title"> Introduction to Biology: Micro organisms and how they affect other life forms</div>
+                                <div class="Star">
+                                    <img width="20px" height="24px" src="assets/Icons/favourite.svg">
+                                </div>
                             </div>
                             <div class="Information-about-course">
-                                Physics | Grade 7 <span class="Add">+2</span>
+                                Biology | Grade 4 <span class="Add">+1</span>
                             </div>
                             <span class="Units">
-                                <b>4</b> units <b>18</b> lessions <b>24</b> Topics
+                                <b>5</b> units <b>16</b> lessions <b>22</b> Topics
                             </span>
                             <div class="Card-input">
                                 <label></label>
                                 <select id="classs" class="classs">
+                                    <option><b>All Classes</b></option>
                                     <option><b>Mr. Frank's Class B</b></option>
+                                </select>
+                            </div>
+                            <span class="Information-about-class">
+                                300 Students
+                            </span>
+                        </div>
+                    </div>
+                    <div class="Info-Icons">
+                        <a href="#watch"><img width="22px" height="24px" src="assets/Icons/preview.svg"></a>
+                        <a href="#manage-courses"><img width="18px" height="20px" src="assets/Icons/manage course.svg" class="Disabled"></a>
+                        <a href="#grade-submission"><img width="18px" height="20px" src="assets/Icons/grade submissions.svg" class="Disabled"></a>
+                        <a href="#reports"><img width="25px" height="25px" src="assets/Icons/reports.svg"></a>
+                    </div>
+                </div>
+                <div class="Card">
+                    <div class="Card-content">
+                        <div class="Tag Expired">EXPIRED</div>
+                        <img src="assets/Images/imageMask-3.svg" class="Image">
+                        <div class="content">
+                            <div class="Content-Title">
+                                <div class="Title"> to High School Mathematics</div>
+                                <div class="Star">
+                                    <img width="20px" height="24px" src="assets/Icons/favourite.svg" class="Unfav">
+                                </div>
+                            </div>
+                            <div class="Information-about-course">
+                                Mathematics | Grade 8 <span class="Add">+3</span>
+                            </div>
+                            <!-- <span class="Units">
+                                <b>4</b> units <b>18</b> lessions <b>24</b> Topics
+                            </span> -->
+                            <div class="Card-input">
+                                <label></label>
+                                <select id="classs" class="classs">
+                                    <option><b>Mr. Frank's Class A</b></option>
                                     <option><b>All Classes</b></option>
                                 </select>
                             </div>
                             <span class="Information-about-class">
-                                50 Students | 21-Jan-2020 - 21-Aug-2020
+                                44 Students | 14-Oct-2019 - 20-Oct-2020
                             </span>
                         </div>
                     </div>
