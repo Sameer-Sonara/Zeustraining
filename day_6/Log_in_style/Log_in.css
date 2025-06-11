@@ -26,7 +26,8 @@ input[type=password]::-webkit-password-toggle-button {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
   background: url("assets/Images/header pattern svg.svg") #1F2834;
   background-size: cover;
   width: 100%;
@@ -76,7 +77,7 @@ input[type=password]::-webkit-password-toggle-button {
   text-align: center;
   margin-top: 20px;
   font-size: 18px;
-  font-weight: 550;
+  font-weight: 500;
 }
 
 @font-face {
@@ -191,9 +192,10 @@ select, input[type=text], input[type=password] {
   font-family: "Quicksand", sans-serif;
   border: none;
   font-size: 16px;
-  color: #666666;
+  color: #7c7b7b;
   border-bottom: 1px solid #ccc;
   outline: none;
+  background-color: transparent;
 }
 
 .state, .district {
@@ -222,13 +224,13 @@ select, input[type=text], input[type=password] {
 .Radio-group .Custom-Radio span {
   width: 20px;
   height: 20px;
-  background-image: url("assets/Icons/radio-button-off.svg");
+  background-image: url("../assets/Icons/radio-button-off.svg");
   background-size: contain;
   display: inline-block;
   background-repeat: no-repeat;
 }
 .Radio-group .Custom-Radio input:checked + span {
-  background-image: url("assets/Icons/radio-button-on.svg");
+  background-image: url("../assets/Icons/radio-button-on.svg");
 }
 
 .Action-link {
@@ -276,13 +278,13 @@ select, input[type=text], input[type=password] {
   width: 18px;
   margin-top: 5px;
   height: 24px;
-  background-image: url("assets/Icons/checkbox-unchecked.svg");
+  background-image: url("../assets/Icons/checkbox-unchecked.svg");
   background-size: contain;
   display: inline-block;
   background-repeat: no-repeat;
 }
 .Custom-Check input:checked + span {
-  background-image: url("assets/Icons/checkbox-checked.svg");
+  background-image: url("../assets/Icons/checkbox-checked.svg");
 }
 
 .Log-in-Button {
@@ -323,26 +325,39 @@ input[type=password]::-webkit-password-toggle-button {
 
 .Footer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
+  gap: 20px;
+  flex-direction: column;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-logo {
+  width: 100%;
   min-height: 50px;
   background-color: #E0E1E1;
+  /* padding: 8px; */
   text-align: center;
   font-size: 18px;
-  color: rgba(153, 153, 153, 0.6);
+  color: #999;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid #ddd;
 }
+
 .Footer img {
   left: 131px;
   width: 90px;
   height: 24px;
   margin-right: 20px;
 }
+
 .Footer span {
+  /* max-width: 300px; */
   line-height: 2;
   color: #616161;
-  font-weight: 500;
+  font-weight: medium;
 }
 
 body {
@@ -359,7 +374,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 34px;
   min-height: 100vh;
   background-color: #EEEEEE;
 }

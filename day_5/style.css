@@ -14,7 +14,8 @@ body {
 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 24px;
   align-items: center;
   min-height: 100vh;         
   background-color: #EEEEEE; 
@@ -47,12 +48,12 @@ body {
 .Main-Content
 {
   width: 100%;
-  /* min-height: 83vh; */
   padding: 30px 20px;
   max-width: 445px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: space-between; */
   box-sizing: border-box;
 }
 .Log-in-box
@@ -277,6 +278,14 @@ a
   font-weight: 500;
 }
 .Footer
+{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  margin-top: auto;
+  width: 100%;
+}
+.footer-logo
 {
   width: 100%;
   min-height: 50px;

@@ -15,7 +15,8 @@ body
 {
     font-family: $font-stack;
     @include cnt(column);
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 34px;
     min-height: 100vh;
     background-color: #EEEEEE;
     

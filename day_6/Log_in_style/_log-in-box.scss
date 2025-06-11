@@ -14,6 +14,7 @@
     {
         width: 100%;
     }
+
 }
 
 .Log-in-Header
@@ -83,9 +84,10 @@ select , input[type="text"],input[type="password"]
     font-family: $font-stack;
     border: none;
     font-size: 16px;
-    color: #666666;
+    color: #7c7b7b;
     border-bottom: 1px solid #ccc;
     outline : none ;
+    background-color: transparent;
 }
 .state , .district
 {
@@ -110,14 +112,14 @@ select , input[type="text"],input[type="password"]
     {
         width: 20px;
         height: 20px;
-        background-image: url('assets/Icons/radio-button-off.svg');
+        background-image: url('../assets/Icons/radio-button-off.svg');
         background-size: contain;
         display: inline-block;
         background-repeat: no-repeat;
     }
     .Custom-Radio input:checked + span
     {
-        background-image: url('assets/Icons/radio-button-on.svg');
+        background-image: url('../assets/Icons/radio-button-on.svg');
     }
 }
 
@@ -161,14 +163,14 @@ select , input[type="text"],input[type="password"]
         width: 18px;
         margin-top: 5px;
         height: 24px;
-        background-image: url('assets/Icons/checkbox-unchecked.svg');
+        background-image: url('../assets/Icons/checkbox-unchecked.svg');
         background-size: contain;
         display: inline-block;
         background-repeat: no-repeat;
     }
     input:checked + span
     {
-        background-image: url('assets/Icons/checkbox-checked.svg');
+        background-image: url('../assets/Icons/checkbox-checked.svg');
     }
 }
 .Log-in-Button

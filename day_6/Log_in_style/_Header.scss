@@ -3,7 +3,9 @@
 {
     @include cnt(row);
     justify-content: space-between;
-    padding: 5px;
+    // padding: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
     background: url('assets/Images/header pattern svg.svg')#1F2834 ;
     background-size: cover;
     width:100%;
