@@ -1,0 +1,24 @@
+@import 'mixin';
+.Footer
+{
+    @include cnt(row);
+    min-height: 50px;
+    background-color: #E0E1E1;
+    text-align: center;
+    font-size: 18px;
+    color: #9999;
+    border-top: 1px solid #ddd;
+    img
+    {
+        left : 131px;
+        width: 90px;
+        height: 24px;
+        margin-right: 20px;
+    }
+    span
+    {
+        line-height: 2;
+        color: #616161;
+        font-weight: 500;
+    }
+}

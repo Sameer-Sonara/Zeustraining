@@ -1,0 +1,33 @@
+@import 'Header';
+@import 'main-content';
+@import 'mixin';
+@import 'log-in-box';
+@import 'Footer';
+
+body
+{
+    font-family: $font-stack ;
+    background-color: #f2f4f8;
+    @include ratio(0px , 0px);
+    box-sizing: border-box;
+}
+.Container
+{
+    font-family: $font-stack;
+    @include cnt(column);
+    justify-content: space-between;
+    min-height: 100vh;
+    background-color: #EEEEEE;
+    
+}
+*{
+    box-sizing: border-box;
+}
+
+.Logo
+{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+

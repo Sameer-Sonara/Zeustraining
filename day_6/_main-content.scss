@@ -1,0 +1,17 @@
+@import 'mixin';
+.Main-Content
+{
+    @include cnt(column);
+    padding: 30px 20px;
+    max-width: 445px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.Info
+{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 550;
+}

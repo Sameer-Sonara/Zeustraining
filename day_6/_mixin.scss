@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('assets/Fonts/Quicksand-VariableFont_wght.ttf');
+}
+$font-stack: 'Quicksand', sans-serif;
+@mixin ratio($a , $b)
+{
+    margin:$a;
+    padding : $b;
+}
+@mixin cnt($dir)
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $dir;
+}
+a
+{
+    color: #2d7c64;
+    text-decoration: none;
+}
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear 
+{
+  display: none;
+}
+
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-clear-button,
+input[type="password"]::-webkit-password-toggle-button 
+{
+  display: none;
+  visibility: hidden;
+}

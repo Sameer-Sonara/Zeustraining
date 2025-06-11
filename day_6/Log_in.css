@@ -1,0 +1,374 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/Fonts/Quicksand-VariableFont_wght.ttf");
+}
+a {
+  color: #2d7c64;
+  text-decoration: none;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+input[type=password]::-webkit-contacts-auto-fill-button,
+input[type=password]::-webkit-credentials-auto-fill-button,
+input[type=password]::-webkit-clear-button,
+input[type=password]::-webkit-password-toggle-button {
+  display: none;
+  visibility: hidden;
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  background: url("assets/Images/header pattern svg.svg") #1F2834;
+  background-size: cover;
+  width: 100%;
+  background-blend-mode: overlay;
+  box-sizing: border-box;
+}
+
+.Logo {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/Fonts/Quicksand-VariableFont_wght.ttf");
+}
+a {
+  color: #2d7c64;
+  text-decoration: none;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+input[type=password]::-webkit-contacts-auto-fill-button,
+input[type=password]::-webkit-credentials-auto-fill-button,
+input[type=password]::-webkit-clear-button,
+input[type=password]::-webkit-password-toggle-button {
+  display: none;
+  visibility: hidden;
+}
+
+.Main-Content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 20px;
+  max-width: 445px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Info {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/Fonts/Quicksand-VariableFont_wght.ttf");
+}
+a {
+  color: #2d7c64;
+  text-decoration: none;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+input[type=password]::-webkit-contacts-auto-fill-button,
+input[type=password]::-webkit-credentials-auto-fill-button,
+input[type=password]::-webkit-clear-button,
+input[type=password]::-webkit-password-toggle-button {
+  display: none;
+  visibility: hidden;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/Fonts/Quicksand-VariableFont_wght.ttf");
+}
+a {
+  color: #2d7c64;
+  text-decoration: none;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+input[type=password]::-webkit-contacts-auto-fill-button,
+input[type=password]::-webkit-credentials-auto-fill-button,
+input[type=password]::-webkit-clear-button,
+input[type=password]::-webkit-password-toggle-button {
+  display: none;
+  visibility: hidden;
+}
+
+.Log-in-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 465px;
+  padding: 20px 32px;
+  gap: 15px;
+  border-top: 2px solid #3AC7EC;
+  background-color: white;
+}
+.Log-in-box form {
+  width: 100%;
+}
+
+.Log-in-Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+}
+.Log-in-Header .Back-Button {
+  margin-top: 7px;
+  width: 20px;
+  height: 24px;
+}
+.Log-in-Header .Log-in-Text {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 0px;
+}
+
+@media (max-width: 480px) {
+  .Log-in-box {
+    padding: 20px;
+  }
+  .Log-in-Text {
+    font-size: 20px;
+    margin-left: 40px;
+  }
+  .Radio-group {
+    gap: 2px;
+  }
+  .Log-in-Button {
+    width: 100%;
+    font-size: 14px;
+  }
+  .Action-link {
+    font-size: 12px;
+  }
+  .Footer span {
+    font-size: 12px;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}
+select, input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px;
+  font-family: "Quicksand", sans-serif;
+  border: none;
+  font-size: 16px;
+  color: #666666;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+.state, .district {
+  color: #666666;
+}
+
+.Radio-group {
+  display: flex;
+  font-family: "Quicksand", sans-serif;
+  padding-bottom: 10px;
+  gap: 40px;
+}
+.Radio-group .Custom-Radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  cursor: pointer;
+  gap: 8px;
+  font-size: 14px;
+}
+.Radio-group .Custom-Radio input {
+  display: none;
+}
+.Radio-group .Custom-Radio span {
+  width: 20px;
+  height: 20px;
+  background-image: url("assets/Icons/radio-button-off.svg");
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+.Radio-group .Custom-Radio input:checked + span {
+  background-image: url("assets/Icons/radio-button-on.svg");
+}
+
+.Action-link {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: end;
+  font-size: 14px;
+  color: #2d7c64;
+  margin-top: 5px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 20px;
+  height: 24px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.Custom-Check {
+  cursor: pointer;
+  gap: 8px;
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: start;
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+}
+.Custom-Check input {
+  display: none;
+}
+.Custom-Check span {
+  position: relative;
+  width: 18px;
+  margin-top: 5px;
+  height: 24px;
+  background-image: url("assets/Icons/checkbox-unchecked.svg");
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+.Custom-Check input:checked + span {
+  background-image: url("assets/Icons/checkbox-checked.svg");
+}
+
+.Log-in-Button {
+  display: block;
+  margin: 34px auto 24px auto;
+  width: 50%;
+  background-color: #3FD28B;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2392156863);
+  margin-top: 20px;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("assets/Fonts/Quicksand-VariableFont_wght.ttf");
+}
+a {
+  color: #2d7c64;
+  text-decoration: none;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+input[type=password]::-webkit-contacts-auto-fill-button,
+input[type=password]::-webkit-credentials-auto-fill-button,
+input[type=password]::-webkit-clear-button,
+input[type=password]::-webkit-password-toggle-button {
+  display: none;
+  visibility: hidden;
+}
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  min-height: 50px;
+  background-color: #E0E1E1;
+  text-align: center;
+  font-size: 18px;
+  color: rgba(153, 153, 153, 0.6);
+  border-top: 1px solid #ddd;
+}
+.Footer img {
+  left: 131px;
+  width: 90px;
+  height: 24px;
+  margin-right: 20px;
+}
+.Footer span {
+  line-height: 2;
+  color: #616161;
+  font-weight: 500;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: #f2f4f8;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.Container {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background-color: #EEEEEE;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.Logo {
+  margin-left: 10px;
+  margin-right: 5px;
+}/*# sourceMappingURL=Log_in.css.map */

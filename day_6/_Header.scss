@@ -1,0 +1,17 @@
+@import 'mixin';
+.Header
+{
+    @include cnt(row);
+    justify-content: space-between;
+    padding: 5px;
+    background: url('assets/Images/header pattern svg.svg')#1F2834 ;
+    background-size: cover;
+    width:100%;
+    background-blend-mode: overlay;
+    box-sizing: border-box;
+}
+.Logo
+{
+    margin-left: 10px;
+    margin-top: 5px;
+}
