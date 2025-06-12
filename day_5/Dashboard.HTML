@@ -6,8 +6,9 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="Dashboard.css">
     <script defer src="Dashbosard.js"></script>
+    <script defer src="alerts.js"></script>
 </head>
-<body>
+<body><source>
     
     <div class="Container">
         <div class="Header">
@@ -24,12 +25,30 @@
                             <a href="#Admin" >ADMIN</a>
                     </nav>
                     <div class="Main-Icons" >
+                        <div class="alerts">
                             <img height="20px" width="20px" src="assets/Icons/alerts.svg" >
                             <span class="badge_1">2</span>
+                        </div>
+                        <div class="announcements">
                             <img height="20px" width="20px" src="assets/Icons/announcements.svg">
                             <span class="badge_2">1</span>
+                            <div class="announcements-drop">
+                                <div class="notifiction-wrapper">
+                                    <div class = "Drop-Down-Alerts" id="alers-dropdown">
+                                        
+                                    </div>
+                                </div>
+                                <div class="dropdown-footer">
+                                    <button class="footer-btn">SHOW ALL</button>
+                                    <button class="footer-btn">CREATE NEW</button>
+                                </div>  
+                            </div>
+                            
+                        </div>
+                        <div class="account">
                             <img height="30px" width="32px" src="assets/Icons/account_circle.svg">
                             <span class="badge">T</span>
+                        </div>
                     </div>
                     <div class="Menu-Wrapper">
                         <div class="Menu-toggle" >

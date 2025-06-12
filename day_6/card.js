@@ -42,8 +42,7 @@ async function loadCards() {
                         <a href="#reports" class="reports"><img width="25px" height="25px" src="assets/Icons/reports.svg"></a>
                     </div>
                 `;
-                if(cardDiv.previwe)
-                    console.log("preview");
+                
                 container.appendChild(cardDiv);
         });
 
