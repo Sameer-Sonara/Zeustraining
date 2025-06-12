@@ -6,9 +6,6 @@ const trigger = document.querySelectorAll('.arrow-text');
 const submenu = document.querySelectorAll('.Sub-menu');
 const icon = document.querySelectorAll('.Drop-down-icon');
 
-console.log("Menu Wrapper:", menuwrapper);
-console.log("Menu Toggle:", menutoggle);
-console.log("Dropdown:", dropdown);
 let timeout;
 menuwrapper.addEventListener('mouseenter' , () =>{
     clearTimeout(timeout);

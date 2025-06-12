@@ -175,8 +175,6 @@ body {
 {
     /* max-height: 0; */
     display:none;
-
-    min-width: 280px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
