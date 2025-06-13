@@ -36,7 +36,23 @@
     "message": "Additional course materials available on request",
     "course": "Mathematics 101",
     "timestamp": "15-Sep-2018 at 07:21 pm",
+    "read": true,
+    "attached-files": 3
+  },
+  {
+    "sender": "PA. Wilson Kumar",
+    "message": "Additional course materials available on request",
+    "course": "Mathematics 101",
+    "timestamp": "15-Sep-2018 at 07:21 pm",
     "read": false,
+    "attached-files": 2
+  },
+  {
+    "sender": "PA. Wilson Kumar",
+    "message": "Additional course materials available on request",
+    "course": "Mathematics 101",
+    "timestamp": "15-Sep-2018 at 07:21 pm",
+    "read": true,
     "attached-files": 0
   }
 ]

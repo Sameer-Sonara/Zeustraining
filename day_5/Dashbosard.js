@@ -101,7 +101,6 @@ document.querySelector('.footer-btn').addEventListener('click', function () {
     const dropdown = document.querySelector('.announcements-drop');
     dropdown.classList.toggle('expanded');
     
-    // Optional: toggle button text too
     this.textContent = dropdown.classList.contains('expanded') ? 'SHOW LESS' : 'SHOW ALL';
 });
 
@@ -120,6 +119,31 @@ announcement.addEventListener('mouseleave' , function ()
         }, 0);
     
     // console.log("hello sameer work");
+});
+
+
+const noti = document.querySelector('.alerts');
+noti.addEventListener('mouseenter' , function ()
+{
+    const announcementDropDown = document.querySelector('.notifications-wrapper-alerts');
+    announcementDropDown.style.display = "block";
+    console.log("hello sameer work");
+});noti
+noti.addEventListener('mouseleave' , function ()
+{
+    const announcementDropDown = document.querySelector('.notifications-wrapper-alerts');
+    timeout = setTimeout(() => {
+        announcementDropDown.style.display = "none";
+        }, 0);
+    
+    // console.log("hello sameer work");
+});
+
+document.querySelector('.footer-btn-noti').addEventListener('click', function () {
+    const dropdown = document.querySelector('.notifications-wrapper-alerts');
+    dropdown.classList.toggle('extend');
+    
+    this.textContent = dropdown.classList.contains('extend') ? 'SHOW LESS' : 'SHOW ALL';
 });
 window.addEventListener("resize", onScreenResize);
 
