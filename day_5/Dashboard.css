@@ -162,6 +162,7 @@ body {
     /* background-color: #000000; */
     display: flex;
     width: 100%;
+    color: #1F7A54;
     justify-content: space-between;
     flex-direction: column;
 }
@@ -634,6 +635,7 @@ select
 .notification-message
 {
     font-size: 14px;
+    font-weight: 600;
 }
 .notiClass , .notiCourse
 {
