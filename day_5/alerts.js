@@ -1,5 +1,5 @@
 async function loadalers() {
-    const container = document.getElementById("alers-dropdown");
+    const container = document.getElementById("alerts-dropdown");
 
     try {
         const response = await fetch("alerts.JSON");
@@ -41,11 +41,10 @@ async function loadalers() {
             container.appendChild(NotiDiv);
         });
     } catch (error) {
-        console.log("Hello sameer! stuck");
+        console.log("stuck");
         container.innerHTML = `<p style="color: red;">Failed to load.</p>`;
     }
 
-    console.log("Hello sameer!");
 }
 
-window.onload = loadalers;
+window.onload = loadalers();

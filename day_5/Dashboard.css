@@ -229,7 +229,7 @@ body {
     flex-direction: column;
     gap: 0px;
     padding: 20px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
 }
@@ -425,6 +425,26 @@ body {
 {
   width: 100%;
   min-height: 50px;
+  /* padding: 8px; */
+  text-align: center;
+  display: flex;
+  gap: 35px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer img{
+  left: 131px;
+  width: 100px;
+  height: 30px;
+  margin-right: 20px ;
+
+}
+.footer-copyright
+{
+    width: 100%;
+  min-height: 50px;
   background-color: #E0E1E1;
   /* padding: 8px; */
   text-align: center;
@@ -435,14 +455,6 @@ body {
   justify-content: center;
   align-items: center;
   border-top: 1px solid #ddd;
-}
-
-.Footer img{
-  left: 131px;
-  width: 100px;
-  height: 30px;
-  margin-right: 20px ;
-
 }
 .announcements
 {
@@ -505,7 +517,6 @@ select
 }
 .drop-down-alerts {
     border-bottom: 1px solid #e0e0e0;
-    padding: 10px 15px;
     background-color: #fff;
 }
 
@@ -516,6 +527,7 @@ select
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 4px;
+    padding: 5px;
 }
 
 .sender {
@@ -539,6 +551,7 @@ select
 }
 
 .alert-message {
+    padding: 5px;
     font-size: 14px;
     margin-bottom: 4px;
     color: #333;

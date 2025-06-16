@@ -109,7 +109,6 @@ announcement.addEventListener('mouseenter' , function ()
 {
     const announcementDropDown = document.querySelector('.announcements-drop');
     announcementDropDown.style.display = "block";
-    console.log("hello sameer work");
 });
 announcement.addEventListener('mouseleave' , function ()
 {
@@ -127,7 +126,7 @@ noti.addEventListener('mouseenter' , function ()
 {
     const announcementDropDown = document.querySelector('.notifications-wrapper-alerts');
     announcementDropDown.style.display = "block";
-    console.log("hello sameer work");
+    // console.log("hello sameer work");
 });noti
 noti.addEventListener('mouseleave' , function ()
 {
