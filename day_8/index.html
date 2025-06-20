@@ -8,8 +8,19 @@
     <script defer src="main.js" type="module"></script>
 </head>
 <body>
-    <div class="mainDiv">
-        <canvas id="mainCanvas" width="5000px" height="5000px"></canvas>
+
+    <div class="container">
+        <div class="toolbar">
+            <button onclick="grid.loadSampleData()">Load Sample Data</button>
+            <button onclick="grid.clearData()">Clear Data</button>
+            <button onclick="grid.commandManager.undo()">Undo</button>
+            <button onclick="grid.commandManager.redo()">Redo</button>
+            <div class="stats" id="selectionStats"></div>
+        </div>
+            
+        <div class="mainDiv">
+            <canvas id="mainCanvas" width="10000px" height="10000px"></canvas>
+        </div>
     </div>
 </body>
 </html>
