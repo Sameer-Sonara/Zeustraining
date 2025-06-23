@@ -1,57 +1,95 @@
-
-body
-{
-    margin: 0PX;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    /* overflow: hidden; */
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.container
-{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.toolbar {
+  /* background: #ff8585; */
+  /* padding: 10px; */
+  display: flex;
+  /* gap: 10px; */
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+  background-color: #f5f5f5;
+  height: 50px;
+  box-sizing: border-box;
 }
-.toolbar 
+.addrres
 {
-    background: #2c3e50;
-    color: white;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  width :120px;
+  background-color: white;
+  border: 1px solid #CCC;
+
 }
 
-.toolbar button 
+.formula-editor
 {
-    background: #3498db;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 12px;
+  height: 70%;
+  background-color: white;
+}
+.formula
+{
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #CCC;
+  width: 70%;
+}
+.canvas-wrapper {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  height: calc(100vh - 50px);
 }
 
-.toolbar button:hover 
-{
-    background: #2980b9;
+canvas {
+    display: block;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border: 1px solid black;
+  display: block;
 }
 
-.stats {
-    background: #ecf0f1;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 12px;
-    color: #2c3e50;
+input {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid black;
+  padding: 0;
+  font-size: 25px;
+  margin: 0;
+  transition: all 0.1s ease;
 }
-canvas
-{
-    display : block;
-    background-color: white;
-    border: 1px solid black;
+
+/* Optional: Style scrollbars (modern browsers only) */
+.canvas-wrapper::-webkit-scrollbar {
+  width: 10px;
+ height: 10px;
+ top: 0px;
+}
+
+.canvas-wrapper::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.canvas-wrapper::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.canvas-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

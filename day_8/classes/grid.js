@@ -1,147 +1,172 @@
+// classes/Grid.js
 import { Row } from './Row.js';
-import { Col } from './Col.js';
-import { Cell } from './Cell.js';
-import { Command } from './cmd/Command.js'
+import { CommandManager } from './cmd/Command.js';
+import { SetCellValueCommand } from './cmd/setvalue.js';
+import { Resizer } from './cmd/Resize.js';
 
-export class Grid
-{
-    /**
-     * Initializes the Grid.
-     * @param {HTMLCanvasElement} canvas - The canvas element.
-     * @param {CanvasRenderingContext2D} ctx - The canvas context.
-     */
-    constructor(canvas, ctx) 
-    {
-        /** @type {HTMLCanvasElement} */
-        this.canvas = canvas;
-        /** @type {CanvasRenderingContext2D} */
-        this.ctx = ctx;
+export class Grid {
+  constructor(canvas, ctx) {
+    this.canvas = canvas;
+    this.ctx = ctx;
+    this.selectedCell = null;
+    this.defaultCellWidth = 100;
+    this.defaultCellHeight = 25;   
+    this.totalRows = 100000;
+    this.totalCols = 5000;
 
-        this.totalRows = 100000;
-        this.totalCols = 500;
-        this.cellWidth = 100;
-        this.cellHeight = 25;
-        this.scrollX = 0;
-        this.scrollY = 0;
-        this.visibleRows = Math.ceil(canvas.height / this.cellHeight);
-        this.visibleCols = Math.ceil(canvas.width / this.cellWidth);
+    this.colWidths = new Map();
+    this.rowHeights = new Map();
 
-        this.attachScrollListeners(); // to render as we scroll
+    this.rows = new Map();
+    this.commandManager = new CommandManager();
 
-        this.columns = new Map();
-        this.rows = new Map();
+    this.scrollX = 0;
+    this.scrollY = 0;
+    this.attachEvents();
+    this.resizer = new Resizer(this); 
+  }
 
-        this.attachEditListeners();
+  getColWidth(col) {
+    return this.colWidths.get(col) || this.defaultCellWidth;
+  }
 
-    }
+  getRowHeight(row) {
+    return this.rowHeights.get(row) || this.defaultCellHeight;
+  }
 
-    getRow(r) 
-    {
-        if (!this.rows.has(r)) 
-        {
-            this.rows.set(r, new Row(r, this.totalCols));
-        }
-        return this.rows.get(r);
-    }
-    getColName(ind)
-    {
-        let name ="";
-        while(ind >= 0)
-        {
-            name = String.fromCharCode((ind%26)+65)+name;
-            ind = Math.floor(ind/26) - 1;
-        }
-        return name;
-    }
-
-    attachScrollListeners()
-    {
-        this.canvas.addEventListener('wheel' , (e) =>
-        {
-            this.scrollX += e.deltaX;
-            this.scrollY += e.deltaY;
-
-            this.scrollX = Math.max(0 , this.scrollX);
-            this.scrollY = Math.max(0 , this.scrollY);
-            this.render();
-        });
-    }
-
-    attachEditListeners()
-    {
-        this.canvas.addEventListener('dblclick' , (e) =>
-        {
-            const rect = this.canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left + this.scrollX;
-            const y = e.clientY - rect.top + this.scrollY;
-
-            const col = Math.floor(x / this.cellWidth);
-            const row = Math.floor(y / this.cellHeight);
-
-            const input = document.createElement('input');
-            input.style.position = 'absolute';
-            input.style.left = `${e.clientX}px`;
-            input.style.top = `${e.clientY}px`;
-            input.style.width = `${this.cellWidth}px`;
-            input.style.height = `${this.cellHeight}px`;
-            input.style.fontSize = '12px';
-            input.value = this.getRow(row).getCell(col).value;
-
-            document.body.appendChild(input);
-            input.focus();
-
-            input.addEventListener("blur" , () =>
-            {
-                this.getRow(row).setCell(col , input.value);
-                document.body.removeChild(input);
-                this.render();
-            });
-        });
-        
-    }
+  attachEvents() {
     
-    render() // to render the whole grid
-    {
-        const ctx = this.ctx;
-        ctx.clearRect(0 , 0 , this.canvas.width , this.canvas.height)
+    this.wrapper = document.getElementById('canvas-wrapper');
+    
+    const canvasRect = this.canvas.getBoundingClientRect();
+        this.canvas.addEventListener('dblclick', (e) => {
+        const wrapper = document.getElementById("canvas-wrapper");
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const rect = this.canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left + this.scrollX;
+        const y = e.clientY - rect.top + this.scrollY;
 
-        const rowStart = Math.floor(this.scrollY/this.cellHeight);
-        const colStart = Math.floor(this.scrollX/this.cellWidth);
-
-        for (let col = 1; col < this.visibleCols; col++) 
-        {
-            const c = colStart + col;
-            this.ctx.fillStyle = '#ddd';
-            this.ctx.fillRect(col * this.cellWidth, 0, this.cellWidth, this.cellHeight);
-            this.ctx.fillStyle = '#000';
-            const name = this.getColName(c-1);
-            this.ctx.fillText(name, c * this.cellWidth + 5, 15);
+        let col = 0, colOffset = 0;
+        for (; col < this.totalCols; col++) {
+        const w = this.getColWidth(col);
+        if (colOffset + w > x) break;
+        colOffset += w;
         }
-        for(let row = 1 ; row<this.visibleRows ; row++)
-        {
-            this.ctx.fillStyle = '#000';
-            this.ctx.fillText((rowStart+row).toString(), 5, row * this.cellHeight + 15);
-            for(let col = 1 ; col<this.visibleCols ; col++)
-            {
-                const r = rowStart + row;
-                const c = colStart + col;
-                if(r>=this.totalRows || c>=this.totalCols) continue;
 
-                const x = col * this.cellWidth - (this.scrollX % this.cellWidth);
-                const y = row * this.cellHeight - (this.scrollY % this.cellHeight);
-
-                ctx.strokeStyle = '#ccc';
-                ctx.strokeRect(x , y , this.cellWidth , this.cellHeight);
-
-                ctx.fillStyle = '#000';
-                ctx.font= "12px sans-serif";
-                ctx.fillText(`R${r}C${c}`, x + 5, y + 17);
-
-            }
+        let row = 0, rowOffset = 0;
+        for (; row < this.totalRows; row++) {
+        const h = this.getRowHeight(row);
+        if (rowOffset + h > y) break;
+        rowOffset += h;
         }
-        
+
+        if (row === 0 || col === 0) return;
+
+        const input = document.createElement('input');
+        input.type = 'text';
+
+        input.style.left = `${colOffset - this.scrollX}px`;
+        input.style.top = `${rowOffset - this.scrollY}px`;
+        input.style.width = `${this.getColWidth(col)}px`;
+        input.style.height = `${this.getRowHeight(row)}px`;
+        input.value = this.getRow(row).getCell(col).value;
+
+        wrapper.appendChild(input);
+        input.focus();
+        let cancelled = false;
+
+        input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === 'Tab') {
+            e.preventDefault();
+            input.blur(); // save
+        } else if (e.key === 'Escape') {
+            cancelled = true;
+            input.blur(); // discard
+        }
+        });
+
+        input.addEventListener('blur', () => {
+        if (!cancelled) {
+            const cmd = new SetCellValueCommand(this, row, col, input.value);
+            this.commandManager.execute(cmd);
+        }
+        wrapper.removeChild(input);
+        });
+
+        });
+
+  }
+
+  getRow(r) {
+    if (!this.rows.has(r)) {
+      this.rows.set(r, new Row(r));
+    }
+    return this.rows.get(r);
+  }
+
+  clear() {
+    this.rows.clear();
+  }
+
+  render() {
+    const ctx = this.ctx;
+    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    const visibleRows = [];
+    let y = -this.scrollY, rowIdx = 0;
+    while (y < this.canvas.height && rowIdx < this.totalRows) {
+      const h = this.getRowHeight(rowIdx);
+      if (y + h >= 0) visibleRows.push({ index: rowIdx, y, h });
+      y += h;
+      rowIdx++;
     }
 
+    const visibleCols = [];
+    let x = -this.scrollX, colIdx = 0;
+    while (x < this.canvas.width && colIdx < this.totalCols) {
+      const w = this.getColWidth(colIdx);
+      if (x + w >= 0) visibleCols.push({ index: colIdx, x, w });
+      x += w;
+      colIdx++;
+    }
+
+    // Column headers
+    for (const col of visibleCols) {
+        if(col.index === 0) continue;
+      ctx.fillStyle = '#eee';
+      ctx.fillRect(col.x, 0, col.w, this.defaultCellHeight);
+      ctx.strokeRect(col.x, 0, col.w, this.defaultCellHeight);
+      ctx.fillStyle = '#000';
+      ctx.fillText(this.getColName(col.index-1), col.x + 5, 15);
+    }
+
+    // Rows and cells
+    for (const row of visibleRows) {
+        if(row.index === 0 ) continue;
+      ctx.fillStyle = '#eee';
+      ctx.fillRect(0, row.y, this.defaultCellWidth, row.h);
+      ctx.strokeRect(0, row.y, this.defaultCellWidth, row.h);
+      ctx.fillStyle = '#000';
+      ctx.fillText((row.index ).toString(), 5, row.y + 15);
+
+      for (const col of visibleCols) {
+        const cell = this.getRow(row.index).getCell(col.index);
+        ctx.strokeStyle = 'black';
+        ctx.strokeRect(col.x, row.y, col.w, row.h);
+        ctx.fillStyle = '#000';
+        ctx.fillText(cell.value, col.x + 5, row.y + 15);
+      }
+    }
+    this.wrapper = document.getElementById('canvas-wrapper');
+    this.wrapper.addEventListener('scroll', () => this.render());
+  }
+
+  getColName(index) {
+    let name = "";
+    while (index >= 0) {
+      name = String.fromCharCode((index % 26) + 65) + name;
+      index = Math.floor(index / 26) - 1;
+    }
+    return name;
+  }
 }
-
-

@@ -1,3 +1,4 @@
+// how to add activity on canvas
 const canvas = document.querySelector('canvas')
 console.log(canvas);
 canvas.width = window.innerWidth;
@@ -5,58 +6,16 @@ canvas.height = window.innerHeight;
 
 var c = canvas.getContext('2d'); // make 2d elements
 
-// c.fillStyle  = 'rgba(255,0,0,0.5)';
-// c.fillRect(20 , 20 ,50 , 50); // c.fillRect(x , y , widht , height);
-
-// c.fillStyle  = 'rgba(0,255,0,0.5)';
-// c.fillRect(150 , 70 ,50 , 50);
-// //lines
-
-// c.beginPath();
-// c.moveTo(100 , 100);
-// c.lineTo(300 , 100);
-// c.strokeStyle = "#ccc"
-// c.stroke();
-
-
-
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 }
-
-
-
-
-// let x = Math.random()*1000;
-// let y = Math.random()*1000;
-// let vx = (Math.random() - 0.5)*10;
-// let vy = (Math.random() - 0.5)*10;
-// let forward = true;
-// function anime()
-// {
-//     c.clearRect(0 , 0 , canvas.width , canvas.height);
-//     x+=vx;
-//     y+=vy;
-//     if (x <= 50 || x >= canvas.width-50) vx = -vx;
-//     if(y <= 50 || y >= canvas.height-50) vy = -vy;
-//     {
-//         forward = !forward;
-//     }
-//     c.beginPath();
-//     c.arc(x,y,50,0,Math.PI*2,false);
-//     c.strokeStyle = getRandomColor();
-//     c.stroke();
-
-
-//     requestAnimationFrame(anime);
-// }
-
-
-
-// anime();
-
-const radi = 30;
-const N = 500;
+var point = 
+{
+    x : undefined,
+    y : undefined
+}
+const radi = 0;
+const N = 1500;
 const circleArray = [];
 
 function Circle(x , y , dx , dy , radi , thik , col)
@@ -65,7 +24,7 @@ function Circle(x , y , dx , dy , radi , thik , col)
     this.y = y;
     this.dx = dx;
     this.dy = dy;
-    this.radi = radi;
+    this.radi = Math.random()*5;
     this.thik = thik;
     this.col = col;
 
@@ -80,17 +39,24 @@ function Circle(x , y , dx , dy , radi , thik , col)
       c.fillStyle = this.col;
       c.fill();
     }
-
+    
     this.update = function()
     {
       if (this.x <= this.radi || this.x >= canvas.width-this.radi) this.dx = -this.dx;
       if(this.y <= this.radi || this.y >= canvas.height-this.radi) this.dy = -this.dy;
       this.x+=this.dx;
       this.y+=this.dy;
-
-      this.draw();
+      if(point.x-this.x<50 && point.x-this.x>-50 && point.y-this.y>-50 && point.y-this.y<50)
+        {
+            if(this.radi<40)
+            this.radi +=1;
+        }
+        else if(this.radi >= 2)
+        {
+            this.radi-=1;
+        }
+        this.draw();
     }
-
 }
 
 for(let i = 0 ; i<N ; i++)
@@ -131,6 +97,24 @@ function anime()
     requestAnimationFrame(anime);
 }
 
+window.addEventListener('mousemove' , function(event) 
+{
+    point.x = event.x;
+    point.y = event.y;
+    // if(event.x >= this.window.innerWidth || event.y >= this.window.innerHeight || event.x<this.window.innerWidth || event.y<window.innerHeight )
+    // {
+    //     point.x = undefined;
+    //     point.y = undefined;
+    // }
+    console.log(point);
+});
+
+window.addEventListener('mouseout' , function ()
+    {
+        point.x = undefined ;
+        point.y = undefined;
+    }
+);
 
 anime();
 
