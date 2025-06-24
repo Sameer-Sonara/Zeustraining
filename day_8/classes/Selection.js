@@ -1,33 +1,62 @@
 export class Selection {
-    /**
-     * Initializes a selection.
-     */
-    constructor() 
-    {
-        /**@type {number} Start row index */
-        this.startRow = 0;
-        /**@type {number} Start column index */
-        this.startCol = 0;
-        /**@type {number} End row index */
-        this.endRow = 0;
-        /**@type {number} End column index */
-        this.endCol = 0;
-        /**@type {string} Selection type: 'cell', 'row', 'column', 'range' */
-        this.type = 'cell';
+  constructor() {
+    this.clear();
+  }
+
+  // Select a single cell
+  selectCell(row, col) {
+    this.type = 'cell';
+    this.startRow = row;
+    this.startCol = col;
+    this.endRow = row;
+    this.endCol = col;
+  }
+
+  // Select entire row
+  selectRow(row) {
+    this.type = 'row';
+    this.startRow = row;
+    this.startCol = 0;
+    this.endRow = row;
+    this.endCol = Infinity;
+  }
+
+  // Select entire column
+  selectCol(col) {
+    this.type = 'col';
+    this.startCol = col;
+    this.startRow = 0;
+    this.endCol = col;
+    this.endRow = Infinity;
+  }
+
+  isSelected(row, col) {
+    if (!this.isActive()) return false;
+
+    if (this.type === 'cell') {
+      return row === this.startRow && col === this.startCol;
     }
-    /**
-     * Checks if a cell is within the selection.
-     * @param {number} row
-     * @param {number} col
-     * @returns {boolean}
-     */
-    contains(row, col) 
-    {
-        return (
-            row >= Math.min(this.startRow, this.endRow) &&
-            row <= Math.max(this.startRow, this.endRow) &&
-            col >= Math.min(this.startCol, this.endCol) &&
-            col <= Math.max(this.startCol, this.endCol)
-        );
+
+    if (this.type === 'row') {
+      return row === this.startRow;
     }
+
+    if (this.type === 'col') {
+      return col === this.startCol;
+    }
+
+    return false;
+  }
+
+  isActive() {
+    return this.startRow !== null && this.startCol !== null;
+  }
+
+  clear() {
+    this.type = null;
+    this.startRow = null;
+    this.startCol = null;
+    this.endRow = null;
+    this.endCol = null;
+  }
 }

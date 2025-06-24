@@ -1,20 +1,26 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Excel Grid</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script type="module" src="main.js" defer></script>
 </head>
 <body>
   <div class="toolbar">
-    <div class="addrres formula-editor"  contenteditable="true">
-    </div>
-    <div class ='formula formula-editor' contenteditable="true"> </div>
+    <input  type="text" class="addrres formula-editor"></input>
+    <input type="text" class="formula formula-editor"></input>
   </div>
-  <div class="canvas-wrapper" id="canvas-wrapper">
-    <canvas id="mainCanvas" width="2000" height="1000"></canvas>
+
+  <div class="grid-root">
+    <div class="grid-header-corner"></div>
+    <canvas id="col-header" class="grid-header-col"></canvas>
+    <canvas id="row-header" class="grid-header-row"></canvas>
+    <div class="canvas-wrapper" id="canvas-wrapper">
+      <div class="resize-overlay" id="resize-overlay"></div>
+    </div>
   </div>
 </body>
 </html>

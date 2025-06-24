@@ -1,24 +1,20 @@
-import { Grid } from './classes/grid.js';
+// main.js
+import { Grid } from './classes/Grid.js';
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.getElementById('canvas-wrapper');
+  const grid = new Grid(wrapper);
 
-const canvas = document.getElementById('mainCanvas');
-const ctx = canvas.getContext('2d');
-canvas.style.imageRendering = 'pixelated'; // clean rendering
-const grid = new Grid(canvas, ctx);
-grid.render();
+  window.grid = grid;
 
+  window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'z') {
+      e.preventDefault();
+      grid.commandManager.undo();
+    }
+    if (e.ctrlKey && e.key === 'y') {
+      e.preventDefault();
+      grid.commandManager.redo();
+    }
+  });
 
-// Toolbar actions
-window.grid = grid;
-
-
-
-window.addEventListener('keydown', (e) => {
-  if (e.ctrlKey && e.key === 'z') {
-    e.preventDefault(); // prevent browser undo
-    grid.commandManager.undo();
-  }
-  if (e.ctrlKey && e.key === 'y') {
-    e.preventDefault(); // prevent browser redo
-    grid.commandManager.redo();
-  }
 });
