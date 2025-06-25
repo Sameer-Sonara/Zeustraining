@@ -1,9 +1,9 @@
 import { Row } from './Row.js';
-import { Selection } from './Selection.js';
+// import { Selection } from './Selection.js';
 
 const TILE_ROWS = 50;
 const TILE_COLS = 30;
-const TILE_BUFFER = 1;
+const TILE_BUFFER = 0;
 
 function debounce(func, delay) {
   let timer;
@@ -20,7 +20,7 @@ class CanvasTile {
 
     this.startRow = rowIndex * TILE_ROWS;
     this.endRow = Math.min(this.startRow + TILE_ROWS, grid.totalRows);
-    this.startCol = colIndex * TILE_COLS;
+    this.startCol = colIndex * TILE_COLS;0
     this.endCol = Math.min(this.startCol + TILE_COLS, grid.totalCols);
 
     this.canvas = document.createElement('canvas');
@@ -82,6 +82,9 @@ class CanvasTile {
     ctx.clearRect(0, 0, width, height);
 
     ctx.strokeStyle = '#ccc';
+    
+    
+    ctx.translate(0.5 , 0.5);
     ctx.lineWidth = 1 / ratio;
 
     let y = 0;
@@ -101,26 +104,6 @@ class CanvasTile {
       ctx.stroke();
       x += this.grid.getColWidth(c);
     }
-    y = 0 ;
-    for(let r = this.startRow ; r<=this.endRow ; r++) 
-    {
-      x = 0;
-      for(let c = this.startCol ; c<=this.endCol ; c++)
-        {
-          const w = this.grid.getColWidth(c);   
-          const h = this.grid.getRowHeight(r);  
-          if (this.grid.selection.isSelected(r, c)) 
-          {
-            ctx.fillStyle = 'rgba(231,242,236,255)';
-            ctx.fillRect(x, y, w, h);
-          }
-          x += w;
-      }
-      y += this.grid.getRowHeight(r);
-    }
-
-    
-
     ctx.restore();
   }
 
@@ -149,82 +132,19 @@ export class Grid {
     this.headerHeight = 25;
     this.headerWidth = 50;
 
-    this.selection = new Selection();
 
     this.wrapper.addEventListener('scroll', () => {
       this.render();
       this.renderHeaders();
     });
-    this.wrapper.addEventListener('resize', debounce(this.forceFullRender  , 500));
-    this.wrapper.addEventListener('resize', debounce(this.renderHeaders  , 500));
+    window.addEventListener('resize', debounce(() => 
+      {
+        this.forceFullRender();
+        this.renderHeaders();
+      }, 50));
     this.render();
     this.renderHeaders();
-
-    this.wrapper.addEventListener('click', this.holeGrid.bind(this));
-    this.rowHeader.addEventListener('click', this.rowSelec.bind(this));
-    this.colHeader.addEventListener('click', this.colSelec.bind(this));
-
   }
-
-  
-    holeGrid(e) {
-      const rect = this.wrapper.getBoundingClientRect();
-      const x = e.clientX - rect.left + this.wrapper.scrollLeft;
-      const y = e.clientY - rect.top + this.wrapper.scrollTop;
-
-      let row = 0, col = 0, accY = 0, accX = 0;
-
-      for (let r = 0; r < this.totalRows; r++) {
-        accY += this.getRowHeight(r);
-        if (accY > y) {
-          row = r;
-          break;
-        }
-      }
-
-      for (let c = 0; c < this.totalCols; c++) {
-        accX += this.getColWidth(c);
-        if (accX > x) {
-          col = c;
-          break;
-        }
-      }
-
-      this.selection.selectCell(row, col);
-      this.forceFullRender();
-      this.renderHeaders();
-    }
-
-    rowSelec(e) {
-      const rect = this.rowHeader.getBoundingClientRect();
-      const y = e.clientY - rect.top + this.wrapper.scrollTop;
-      let acc = 0;
-      for (let r = 0; r < this.totalRows; r++) {
-        acc += this.getRowHeight(r);
-        if (acc > y) {
-          this.selection.selectRow(r);
-          break;
-        }
-      }
-      this.forceFullRender();
-      this.renderHeaders();
-    }
-
-    colSelec(e) {
-      const rect = this.colHeader.getBoundingClientRect();
-      const x = e.clientX - rect.left + this.wrapper.scrollLeft;
-      let acc = 0;
-      for (let c = 0; c < this.totalCols; c++) {
-        acc += this.getColWidth(c);
-        if (acc > x) {
-          this.selection.selectCol(c);
-          break;
-        }
-      }
-      this.forceFullRender();
-      this.renderHeaders();
-    }
-
 
   getColName(index) {
     let name = '';
@@ -261,7 +181,6 @@ export class Grid {
     const scrollLeft = this.wrapper.scrollLeft;
     const visibleWidth = this.wrapper.clientWidth;
     const visibleHeight = this.wrapper.clientHeight;
-
     const tileRowStart = Math.floor(scrollTop / (TILE_ROWS * this.getRowHeight()));
     const tileRowEnd = Math.ceil((scrollTop + visibleHeight) / (TILE_ROWS * this.getRowHeight()));
     const tileColStart = Math.floor(scrollLeft / (TILE_COLS * this.getColWidth()));
@@ -269,15 +188,15 @@ export class Grid {
 
     const visibleKeys = new Set();
 
-    for (let r = tileRowStart - TILE_BUFFER; r <= tileRowEnd + TILE_BUFFER; r++) {
-      for (let c = tileColStart - TILE_BUFFER; c <= tileColEnd + TILE_BUFFER; c++) {
+    for (let r = (tileRowStart - TILE_BUFFER) ; r <= tileRowEnd + TILE_BUFFER; r++) {
+      for (let c = (tileColStart - TILE_BUFFER); c <= tileColEnd + TILE_BUFFER; c++) {
         if (r < 0 || c < 0) continue;
         const key = `${r}_${c}`;
         visibleKeys.add(key);
         if (!this.tiles.has(key)) {
           const tile = new CanvasTile(this, r, c);
           this.tiles.set(key, tile);
-          tile.draw();
+          
         }
       }
     }
@@ -286,6 +205,9 @@ export class Grid {
       if (!visibleKeys.has(key)) {
         tile.destroy();
         this.tiles.delete(key);
+      }
+      else{
+        tile.draw();
       }
     }
   }
@@ -305,8 +227,11 @@ export class Grid {
     colCanvas.height = this.headerHeight * ratio;
     colCanvas.style.width = `${canvasWidth}px`;
     colCanvas.style.height = `${this.headerHeight}px`;
-
+    
     ctxCol.setTransform(ratio, 0, 0, ratio, 0, 0);
+    
+    ctxCol.translate(0.5 , 0.5);
+    ctxCol.lineWidth =1/ ratio;
     ctxCol.clearRect(0, 0, canvasWidth, this.headerHeight);
     ctxCol.font = '15px sans-serif';
     ctxCol.textAlign = 'center';
@@ -332,12 +257,16 @@ export class Grid {
     rowCanvas.height = canvasHeight * ratio;
     rowCanvas.style.width = `${this.headerWidth}px`;
     rowCanvas.style.height = `${canvasHeight}px`;
+    ctxCol.translate(0.5 , 0.5);
+    ctxCol.lineWidth = 0.8 / ratio;
 
     ctxRow.setTransform(ratio, 0, 0, ratio, 0, 0);
     ctxRow.clearRect(0, 0, this.headerWidth, canvasHeight);
     ctxRow.font = '15px sans-serif';
     ctxRow.textAlign = 'center';
     ctxRow.textBaseline = 'middle';
+    ctxRow.translate(0.5 , 0.5);
+    ctxRow.lineWidth = 1/ ratio;
 
     let y = -scrollY;
     for (let r = 0; y < canvasHeight && r < this.totalRows; r++) {
